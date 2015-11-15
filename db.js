@@ -1,18 +1,12 @@
-var db = {};
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('zurmo', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
+var mysql = require('mysql');
+var pool  = mysql.createPool(
+	{
+	  host            	: 'localhost',
+	  database			: 'wordpress',
+	  user				: 'root',
+	  password        	: '',
+	  connectionLimit 	: 10
+	}
+);
 
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-  
-});
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = pool;

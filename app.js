@@ -1,5 +1,4 @@
 var express = require("express"),
-	mysql      = require('mysql'),
 	bodyParser = require('body-parser'),
 	jwt    = require('jsonwebtoken'), // used to create, sign, and verify tokens
 	db			= require('./db');

@@ -1,11 +1,18 @@
-exports.setup = function(app, db) {
+exports.setup = function(app, pool) {
 	app.post('/api/teacher', function(req, res) {
 		// create new teacher
 		
     });
 	app.get('/api/teacher/:username', function(req, res) {
-		db.sequelize.query('select * from test').then(function(projects){
-			res.send(projects);
+		
+		pool.getConnection(function(err, connection) {
+		  // Use the connection 
+		  connection.query( 'SELECT * FROM wp_users', function(err, rows) {
+			if (!err){
+				res.send(rows);
+				connection.release();
+			}
+		  });
 		});
     });
 	app.delete('/api/teacher/:username', function(req, res) {
