@@ -1,0 +1,11 @@
+{
+	"name": "sekolah",
+	"version": "0.0.0",
+	"dependencies": {
+		"express": "4.13.3",
+		"body-parser": "1.14.1",
+		"mysql": "2.9.0",
+		"sequelize": "3.13.0",
+		"jsonwebtoken" : "5.4.1"
+	}
+} 
